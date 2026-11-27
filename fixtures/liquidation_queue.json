@@ -1,0 +1,13 @@
+[
+  {
+    "code": "LIQ-0001",
+    "sleeve_id": 2,
+    "instrument_id": 3,
+    "qty": 50,
+    "trigger_mark": 120,
+    "status": "queued",
+    "created_at": 1795745053.146292,
+    "executed_at": null,
+    "note": "演示排队"
+  }
+]

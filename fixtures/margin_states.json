@@ -1,0 +1,38 @@
+[
+  {
+    "sleeve_id": 1,
+    "equity": 249500,
+    "used_margin": 8200,
+    "available": 241300,
+    "status": "ok",
+    "liq_price_hint": 52000,
+    "updated_at": 1795745353.146292
+  },
+  {
+    "sleeve_id": 2,
+    "equity": 180300,
+    "used_margin": 1850,
+    "available": 178450,
+    "status": "ok",
+    "liq_price_hint": null,
+    "updated_at": 1795745353.146292
+  },
+  {
+    "sleeve_id": 3,
+    "equity": 500000,
+    "used_margin": 0,
+    "available": 500000,
+    "status": "ok",
+    "liq_price_hint": null,
+    "updated_at": 1795745353.146292
+  },
+  {
+    "sleeve_id": 4,
+    "equity": 50000,
+    "used_margin": 0,
+    "available": 50000,
+    "status": "ok",
+    "liq_price_hint": null,
+    "updated_at": 1795745353.146292
+  }
+]

@@ -1,0 +1,30 @@
+[
+  {
+    "sleeve_id": 1,
+    "instrument_id": 1,
+    "max_position": 5,
+    "max_order_notional": 500000,
+    "status": "active"
+  },
+  {
+    "sleeve_id": 1,
+    "instrument_id": 2,
+    "max_position": 50,
+    "max_order_notional": 200000,
+    "status": "active"
+  },
+  {
+    "sleeve_id": 2,
+    "instrument_id": 3,
+    "max_position": 1000,
+    "max_order_notional": 150000,
+    "status": "active"
+  },
+  {
+    "sleeve_id": 3,
+    "instrument_id": null,
+    "max_position": 20,
+    "max_order_notional": 1000000,
+    "status": "active"
+  }
+]

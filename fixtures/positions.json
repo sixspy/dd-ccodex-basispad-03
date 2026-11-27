@@ -1,0 +1,26 @@
+[
+  {
+    "sleeve_id": 1,
+    "instrument_id": 1,
+    "qty": 0.5,
+    "avg_entry": 67000,
+    "realized_pnl": -6.7,
+    "updated_at": 1795676953.146292
+  },
+  {
+    "sleeve_id": 1,
+    "instrument_id": 2,
+    "qty": -4,
+    "avg_entry": 3550,
+    "realized_pnl": -2.84,
+    "updated_at": 1795730953.146292
+  },
+  {
+    "sleeve_id": 2,
+    "instrument_id": 3,
+    "qty": 50,
+    "avg_entry": 145,
+    "realized_pnl": 120,
+    "updated_at": 1795658953.146292
+  }
+]

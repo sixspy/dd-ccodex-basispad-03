@@ -1,0 +1,22 @@
+[
+  {
+    "code": "FND-BTC-01",
+    "instrument_id": 1,
+    "rate": 0.0001,
+    "mark_price": 67500,
+    "status": "accrued",
+    "period_start": 1795716553.146292,
+    "period_end": 1795745353.146292,
+    "created_at": 1795744353.146292
+  },
+  {
+    "code": "FND-ETH-01",
+    "instrument_id": 2,
+    "rate": -5e-05,
+    "mark_price": 3520.5,
+    "status": "draft",
+    "period_start": 1795716553.146292,
+    "period_end": 1795745353.146292,
+    "created_at": 1795744853.146292
+  }
+]

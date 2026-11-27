@@ -1,0 +1,34 @@
+[
+  {
+    "instrument_id": 1,
+    "mark": 67500.0,
+    "index_price": 67480.0,
+    "basis_bps": 2.96,
+    "status": "live",
+    "as_of": 1795745353.146292
+  },
+  {
+    "instrument_id": 2,
+    "mark": 3520.5,
+    "index_price": 3519.8,
+    "basis_bps": 1.99,
+    "status": "live",
+    "as_of": 1795745353.146292
+  },
+  {
+    "instrument_id": 3,
+    "mark": 148.25,
+    "index_price": 148.1,
+    "basis_bps": 10.13,
+    "status": "live",
+    "as_of": 1795745353.146292
+  },
+  {
+    "instrument_id": 4,
+    "mark": 67490.0,
+    "index_price": 67480.0,
+    "basis_bps": 1.48,
+    "status": "live",
+    "as_of": 1795745353.146292
+  }
+]

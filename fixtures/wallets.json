@@ -1,0 +1,32 @@
+[
+  {
+    "code": "W-HOT-1",
+    "title": "热钱包 A",
+    "kind": "hot",
+    "chain": "ethereum",
+    "address": "0xbasispadhot0001",
+    "balance": 125000,
+    "status": "active",
+    "note": ""
+  },
+  {
+    "code": "W-COLD-1",
+    "title": "冷钱包金库",
+    "kind": "cold",
+    "chain": "ethereum",
+    "address": "0xbasispadcold0001",
+    "balance": 800000,
+    "status": "active",
+    "note": ""
+  },
+  {
+    "code": "W-CEX-1",
+    "title": "交易所子账户",
+    "kind": "exchange_sub",
+    "chain": "offchain",
+    "address": "cex-sub-alpha",
+    "balance": 420000,
+    "status": "active",
+    "note": ""
+  }
+]

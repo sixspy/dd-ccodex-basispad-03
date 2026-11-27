@@ -1,0 +1,54 @@
+[
+  {
+    "symbol": "BTC-USDT-PERP",
+    "title": "比特币永续",
+    "kind": "perp",
+    "quote_ccy": "USDT",
+    "base_ccy": "BTC",
+    "tick_size": 0.1,
+    "lot_size": 0.001,
+    "funding_interval_h": 8,
+    "max_leverage": 50,
+    "status": "active",
+    "note": "主交易对"
+  },
+  {
+    "symbol": "ETH-USDT-PERP",
+    "title": "以太坊永续",
+    "kind": "perp",
+    "quote_ccy": "USDT",
+    "base_ccy": "ETH",
+    "tick_size": 0.01,
+    "lot_size": 0.01,
+    "funding_interval_h": 8,
+    "max_leverage": 25,
+    "status": "active",
+    "note": ""
+  },
+  {
+    "symbol": "SOL-USDT-PERP",
+    "title": "Solana 永续",
+    "kind": "perp",
+    "quote_ccy": "USDT",
+    "base_ccy": "SOL",
+    "tick_size": 0.001,
+    "lot_size": 0.1,
+    "funding_interval_h": 8,
+    "max_leverage": 20,
+    "status": "active",
+    "note": ""
+  },
+  {
+    "symbol": "BTC-USD-INV",
+    "title": "比特币币本位永续",
+    "kind": "inverse_perp",
+    "quote_ccy": "USD",
+    "base_ccy": "BTC",
+    "tick_size": 0.5,
+    "lot_size": 1,
+    "funding_interval_h": 8,
+    "max_leverage": 100,
+    "status": "active",
+    "note": "币本位"
+  }
+]

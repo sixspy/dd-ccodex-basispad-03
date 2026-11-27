@@ -1,0 +1,28 @@
+[
+  {
+    "code": "SET-0001",
+    "title": "昨日报批结算",
+    "status": "official",
+    "official": 1,
+    "version": 2,
+    "funding_count": 1,
+    "mtm_total": 450.2,
+    "created_by": "admin",
+    "created_at": 1795658953.146292,
+    "locked_at": 1795659353.146292,
+    "note": ""
+  },
+  {
+    "code": "SET-0002",
+    "title": "今日草稿结算",
+    "status": "draft",
+    "official": 0,
+    "version": 1,
+    "funding_count": 1,
+    "mtm_total": 210.5,
+    "created_by": "trader",
+    "created_at": 1795744153.146292,
+    "locked_at": null,
+    "note": ""
+  }
+]

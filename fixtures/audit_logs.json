@@ -1,0 +1,18 @@
+[
+  {
+    "actor": "admin",
+    "action": "seed",
+    "entity": "system",
+    "entity_id": "0",
+    "detail": "冷启动种子",
+    "created_at": 1794881353.146292
+  },
+  {
+    "actor": "trader",
+    "action": "create",
+    "entity": "ticket",
+    "entity_id": "1",
+    "detail": "TKT-0001",
+    "created_at": 1795673353.146292
+  }
+]

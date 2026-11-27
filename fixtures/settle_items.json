@@ -1,0 +1,34 @@
+[
+  {
+    "batch_id": 1,
+    "sleeve_id": 1,
+    "instrument_id": 1,
+    "funding_payment": -3.375,
+    "mtm_pnl": 250,
+    "note": ""
+  },
+  {
+    "batch_id": 1,
+    "sleeve_id": 1,
+    "instrument_id": 2,
+    "funding_payment": 0,
+    "mtm_pnl": 118,
+    "note": ""
+  },
+  {
+    "batch_id": 2,
+    "sleeve_id": 1,
+    "instrument_id": 1,
+    "funding_payment": -3.375,
+    "mtm_pnl": 250,
+    "note": ""
+  },
+  {
+    "batch_id": 2,
+    "sleeve_id": 2,
+    "instrument_id": 3,
+    "funding_payment": 0,
+    "mtm_pnl": 162.5,
+    "note": ""
+  }
+]

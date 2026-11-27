@@ -1,0 +1,42 @@
+[
+  {
+    "code": "SLV-ALPHA",
+    "title": "阿尔法基差簿",
+    "owner": "trader",
+    "status": "active",
+    "base_equity": 250000,
+    "max_gross_exposure": 1200000,
+    "created_at": 1794881353.146292,
+    "note": "主策略"
+  },
+  {
+    "code": "SLV-BETA",
+    "title": "资金费率收割簿",
+    "owner": "trader",
+    "status": "active",
+    "base_equity": 180000,
+    "max_gross_exposure": 800000,
+    "created_at": 1795140553.146292,
+    "note": ""
+  },
+  {
+    "code": "SLV-HEDGE",
+    "title": "对冲护航簿",
+    "owner": "admin",
+    "status": "active",
+    "base_equity": 500000,
+    "max_gross_exposure": 2000000,
+    "created_at": 1794535753.146292,
+    "note": "风控护航"
+  },
+  {
+    "code": "SLV-COLD",
+    "title": "冷藏观察簿",
+    "owner": "admin",
+    "status": "frozen",
+    "base_equity": 50000,
+    "max_gross_exposure": 100000,
+    "created_at": 1793153353.146292,
+    "note": "已冻结"
+  }
+]

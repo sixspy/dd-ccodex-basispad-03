@@ -1,0 +1,12 @@
+[
+  {
+    "code": "FLG-1-001",
+    "snapshot_id": 1,
+    "sleeve_id": 1,
+    "instrument_id": 1,
+    "position_qty": 0.5,
+    "payment": -3.375,
+    "status": "accrued",
+    "created_at": 1795744453.146292
+  }
+]
