@@ -78,3 +78,5 @@ button.btn.danger { background: var(--danger); color: #2b0d0d; }
 .tag.bad { background: #3a2020; color: var(--danger); }
 .err { color: var(--danger); font-size: 13px; margin-top: 8px; }
 .form-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 10px; }
+tr.liq td { background: #2a1616; }
+tr.liq td:first-child { box-shadow: inset 3px 0 0 var(--danger); }

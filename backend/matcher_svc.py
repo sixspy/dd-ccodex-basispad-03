@@ -12,9 +12,8 @@ from locks import acquire_lock, release_lock
 from policies import (
     apply_fill_to_position,
     assert_writable_role,
-    available_equity,
     round_px,
-    used_margin,
+    write_margin_state,
 )
 
 router = APIRouter(prefix="/api/matcher", tags=["matcher"])
@@ -33,40 +32,8 @@ def _next_fill_code(conn) -> str:
 
 
 def _refresh_margin(conn, sleeve_id: int, leverage: float = 1.0) -> None:
-    sleeve = conn.execute("SELECT * FROM sleeves WHERE id=?", (sleeve_id,)).fetchone()
-    positions = conn.execute("SELECT * FROM positions WHERE sleeve_id=?", (sleeve_id,)).fetchall()
-    used = 0.0
-    upnl = 0.0
-    for p in positions:
-        mark_row = conn.execute(
-            "SELECT mark FROM mark_prices WHERE instrument_id=?", (p["instrument_id"],)
-        ).fetchone()
-        mark = mark_row["mark"] if mark_row else p["avg_entry"]
-        used += used_margin(p["qty"], mark, leverage)
-        upnl += p["qty"] * (mark - p["avg_entry"])
-    equity = sleeve["base_equity"] + upnl
-    for f in conn.execute(
-        "SELECT COALESCE(SUM(realized_pnl),0) s FROM positions WHERE sleeve_id=?", (sleeve_id,)
-    ):
-        equity = sleeve["base_equity"] + f["s"] + upnl
-    # 用仓位已实现 + 未实现近似
-    realized = conn.execute(
-        "SELECT COALESCE(SUM(realized_pnl),0) s FROM positions WHERE sleeve_id=?", (sleeve_id,)
-    ).fetchone()["s"]
-    equity = sleeve["base_equity"] + realized + upnl
-    avail = available_equity(equity, used)
-    status = "ok"
-    if avail < equity * 0.2:
-        status = "warn"
-    if avail < 0:
-        status = "call"
-    conn.execute(
-        "INSERT INTO margin_states(sleeve_id,equity,used_margin,available,status,liq_price_hint,updated_at)"
-        " VALUES(?,?,?,?,?,?,?) ON CONFLICT(sleeve_id) DO UPDATE SET"
-        " equity=excluded.equity, used_margin=excluded.used_margin, available=excluded.available,"
-        " status=excluded.status, updated_at=excluded.updated_at",
-        (sleeve_id, equity, used, avail, status, None, time.time()),
-    )
+    """成交后保证金与仓位同源：统一走 write_margin_state，禁止各写各的。"""
+    write_margin_state(conn, sleeve_id, max(leverage, 1.0))
 
 
 @router.post("/match")

@@ -22,6 +22,7 @@ createApp({
     const mtm = ref([]);
     const marginStates = ref([]);
     const liqs = ref([]);
+    const liqRecon = ref({});
     const batches = ref([]);
     const riskLimits = ref([]);
     const riskRequests = ref([]);
@@ -61,6 +62,7 @@ createApp({
         BasisAPI.mtm().then((d) => (mtm.value = d)),
         BasisAPI.marginStates().then((d) => (marginStates.value = d)),
         BasisAPI.liquidations().then((d) => (liqs.value = d)),
+        BasisAPI.liqRecon().then((d) => (liqRecon.value = d)),
         BasisAPI.batches().then((d) => (batches.value = d)),
         BasisAPI.riskLimits().then((d) => (riskLimits.value = d)),
         BasisAPI.riskRequests().then((d) => (riskRequests.value = d)),
@@ -104,7 +106,7 @@ createApp({
 
     return {
       user, page, loginForm, loginErr, title, summary, instruments, sleeves, tickets, fills,
-      fundingSnapshots, fundingLedgers, marks, mtm, marginStates, liqs, batches,
+      fundingSnapshots, fundingLedgers, marks, mtm, marginStates, liqs, liqRecon, batches,
       riskLimits, riskRequests, wallets, walletTxs, events, stubs, health,
       refresh, doLogin, doLogout,
     };
@@ -159,7 +161,7 @@ createApp({
       <FillsView v-else-if="page==='fills'" :rows="fills" />
       <FundingView v-else-if="page==='funding'" :snapshots="fundingSnapshots" :ledgers="fundingLedgers" :instruments="instruments" @refresh="refresh" />
       <MarksView v-else-if="page==='marks'" :rows="marks" :mtm="mtm" :instruments="instruments" @refresh="refresh" />
-      <MarginView v-else-if="page==='margin'" :states="marginStates" :liqs="liqs" :sleeves="sleeves" @refresh="refresh" />
+      <MarginView v-else-if="page==='margin'" :states="marginStates" :liqs="liqs" :recon="liqRecon" :sleeves="sleeves" @refresh="refresh" />
       <SettleView v-else-if="page==='settle'" :batches="batches" @refresh="refresh" />
       <RiskView v-else-if="page==='risk'" :limits="riskLimits" :requests="riskRequests" :sleeves="sleeves" @refresh="refresh" />
       <WalletsView v-else-if="page==='wallets'" :wallets="wallets" :txs="walletTxs" @refresh="refresh" />

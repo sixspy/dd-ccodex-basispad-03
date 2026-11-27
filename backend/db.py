@@ -24,9 +24,12 @@ PRODUCT_META = {
 
 def connect() -> sqlite3.Connection:
     DATA.mkdir(parents=True, exist_ok=True)
-    conn = sqlite3.connect(DB_PATH, check_same_thread=False)
+    conn = sqlite3.connect(DB_PATH, check_same_thread=False, timeout=5.0)
     conn.row_factory = sqlite3.Row
     conn.execute("PRAGMA foreign_keys=ON")
+    conn.execute("PRAGMA busy_timeout=5000")
+    if str(DB_PATH) != ":memory:":
+        conn.execute("PRAGMA journal_mode=WAL")
     return conn
 
 
@@ -149,6 +152,8 @@ CREATE TABLE IF NOT EXISTS liquidation_queue(
   status TEXT NOT NULL,
   created_at REAL NOT NULL,
   executed_at REAL,
+  fill_code TEXT,
+  remaining_qty REAL,
   note TEXT NOT NULL DEFAULT ''
 );
 CREATE TABLE IF NOT EXISTS settle_batches(
@@ -519,9 +524,20 @@ def _seed(conn: sqlite3.Connection) -> None:
     conn.commit()
 
 
+def _migrate(conn: sqlite3.Connection) -> None:
+    """轻量向前兼容迁移（不改库路径，只补列）。"""
+    cols = {r["name"] for r in conn.execute("PRAGMA table_info(liquidation_queue)").fetchall()}
+    if "fill_code" not in cols:
+        conn.execute("ALTER TABLE liquidation_queue ADD COLUMN fill_code TEXT")
+    if "remaining_qty" not in cols:
+        conn.execute("ALTER TABLE liquidation_queue ADD COLUMN remaining_qty REAL")
+    conn.commit()
+
+
 def init_db() -> None:
     with connect() as conn:
         conn.executescript(SCHEMA)
+        _migrate(conn)
         _seed(conn)
 
 

@@ -9,7 +9,7 @@ from pydantic import BaseModel
 from auth import current_user, require_roles
 from db import audit, connect, row_to_dict
 from models import SLEEVE_STATUSES
-from policies import assert_writable_role
+from policies import assert_writable_role, compute_margin, liq_evidence
 
 router = APIRouter(prefix="/api/sleeves", tags=["sleeves"])
 
@@ -56,6 +56,13 @@ def get_sleeve(sid: int, user=Depends(current_user)):
         margin = row_to_dict(
             conn.execute("SELECT * FROM margin_states WHERE sleeve_id=?", (sid,)).fetchone()
         )
+        # 资金费率丙轨：簿详情带的保证金须与仓位边同源实时推导，不读陈旧行
+        live = compute_margin(conn, sid)
+        ev = liq_evidence(conn, sid)
+        if margin is not None:
+            margin["used_margin_live"] = live["used_margin"] if live else None
+            margin["available_live"] = live["available"] if live else None
+            margin["liq_flat"] = ev["official_flat"]
         return {**dict(row), "positions": positions, "margin": margin}
 
 

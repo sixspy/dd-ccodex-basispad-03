@@ -57,6 +57,7 @@ window.BasisAPI = (function () {
     walletTxs: () => req("/api/wallets/txs"),
     createWalletTx: (body) => req("/api/wallets/txs", { method: "POST", body: JSON.stringify(body) }),
     timeline: () => req("/api/history/timeline"),
+    liqRecon: () => req("/api/audit/liq_recon"),
     stubs: () => req("/api/stubs"),
     callStub: (key) => req("/api/stubs/" + key),
   };
